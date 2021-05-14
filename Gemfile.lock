@@ -279,6 +279,7 @@ DEPENDENCIES
   dotenv-rails
   graphiql-rails
   graphql
+  graphql-client
   jbuilder (~> 2.7)
   listen (~> 3.2)
   puma (~> 4.1)

@@ -21,7 +21,13 @@ ShopifyApp.configure do |config|
   if defined? Rails::Server
     raise('Missing SHOPIFY_API_KEY. See https://github.com/Shopify/shopify_app#requirements') unless config.api_key
     raise('Missing SHOPIFY_API_SECRET. See https://github.com/Shopify/shopify_app#requirements') unless config.secret
-  end
+    config.webhooks = [
+    {topic: 'app/uninstalled', address: '{your_app_url}/webhooks/app_uninstalled', format: 'json'},
+  ]
+end
+  config.webhooks = [
+    {topic: 'app/uninstalled', address: '{your_app_url}/webhooks/app_uninstalled', format: 'json'},
+  ]
 end
 
 # ShopifyApp::Utils.fetch_known_api_versions                        # Uncomment to fetch known api versions from shopify servers on boot
